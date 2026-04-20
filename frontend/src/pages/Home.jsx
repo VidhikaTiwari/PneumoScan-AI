@@ -32,8 +32,8 @@ function Home() {
     try {
       setLoading(true);
       setError("");
-
-      const response = await axios.post("http://127.0.0.1:8000/predict", formData, {
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
+      const response = await axios.post(`${API_BASE_URL}/predict`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
